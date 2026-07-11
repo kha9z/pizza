@@ -5,41 +5,46 @@ const useStore = create((set) => ({
     {
       id: 1,
       name: "Margherita",
-      description: "En klassisk pizza med tomatsås, mozzarella och basilika.",
       ingredients: ["Tomatsås", "Mozzarella", "Basilika"],
       price: 119,
     },
     {
       id: 2,
-      name: "JavaScript Special",
-      description: "Pepperoni, jalapeño och extra ost.",
-      ingredients: ["Tomatsås", "Mozzarella", "Pepperoni", "Jalapeño"],
+      name: "Hawaii",
+      ingredients: ["Tomatsås", "Mozzarella", "Ananas", "Skinka"],
       price: 145,
     },
     {
       id: 3,
-      name: "React Veggie",
-      description: "En vegetarisk favorit med grillade grönsaker.",
+      name: "Kebab",
       ingredients: [
         "Tomatsås",
         "Mozzarella",
-        "Paprika",
-        "Champinjoner",
-        "Oliver",
+        "Kebab",
+        "Lök",
+        "Pommes",
       ],
       price: 139,
     },
+
   ],
 
-  addDish: (dish) =>
+  cart: [],
+
+  addToCart: (pizza) =>
     set((state) => ({
-      menu: [...state.menu, dish],
+      cart: [...state.cart, pizza],
     })),
 
-  removeDish: (id) =>
+  removeFromCart: (id) =>
     set((state) => ({
-      menu: state.menu.filter((dish) => dish.id !== id),
+      cart: state.cart.filter((pizza) => pizza.id !== id),
     })),
+
+  clearCart: () =>
+    set({
+      cart: [],
+    }),
 }));
 
 export default useStore;

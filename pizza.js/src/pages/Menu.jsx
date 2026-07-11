@@ -5,15 +5,14 @@ function Menu() {
   const menu = useStore((state) => state.menu);
 
   return (
-    <section>
-      <h1>Pizza.js Meny</h1>
+    <section className="menu-page">
+      <h1>Vår meny</h1>
 
-      {menu.map((pizza) => (
-        <MenuCard
-          key={pizza.id}
-          pizza={pizza}
-        />
-      ))}
+      <div className="menu-grid">
+        {menu.map((pizza) => (
+          <MenuCard key={pizza.id} pizza={pizza} />
+        ))}
+      </div>
     </section>
   );
 }

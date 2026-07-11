@@ -1,20 +1,25 @@
+import useStore from "../store/useStore";
+
 function MenuCard({ pizza }) {
+  const addToCart = useStore((state) => state.addToCart);
+
   return (
     <article className="menu-card">
-      <img src={pizza.image} alt={pizza.name} />
-
-      <div>
+      <div className="menu-card-content">
         <h3>{pizza.name}</h3>
 
-        <p>{pizza.description}</p>
-
-        <p>
-          <strong>Ingredienser:</strong>
-          {" "}
+        <p className="ingredients">
           {pizza.ingredients.join(", ")}
         </p>
 
-        <p>{pizza.price} kr</p>
+        <p className="price">{pizza.price} kr</p>
+
+        <button
+          className="add-btn"
+          onClick={() => addToCart(pizza)}
+        >
+          Lägg i kundvagn
+        </button>
       </div>
     </article>
   );

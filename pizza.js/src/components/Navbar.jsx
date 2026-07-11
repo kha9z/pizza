@@ -1,15 +1,30 @@
 import { Link } from "react-router-dom";
+import useStore from "../store/useStore";
+import logo from "../assets/logo.png";
 
 function Navbar() {
-  return (
-    <nav>
-      <h2>Pizza.js</h2>
+  const cart = useStore((state) => state.cart);
 
-      <div>
+  const total = cart.reduce(
+    (sum, pizza) => sum + pizza.price,
+    0
+  );
+
+  return (
+    <header className="navbar">
+      <Link to="/" className="logo">
+        <img src={logo} alt="Pizza.js logo" />
+      </Link>
+
+      <nav>
         <Link to="/">Hem</Link>
         <Link to="/menu">Meny</Link>
-      </div>
-    </nav>
+
+        <span className="cart-info">
+          🛒 {cart.length} | {total} kr
+        </span>
+      </nav>
+    </header>
   );
 }
 
