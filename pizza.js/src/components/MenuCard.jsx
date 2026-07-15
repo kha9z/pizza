@@ -20,6 +20,7 @@ function MenuCard({ pizza }) {
         >
           Lägg i kundvagn
         </button>
+        
       </div>
     </article>
   );

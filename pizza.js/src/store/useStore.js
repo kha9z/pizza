@@ -36,10 +36,10 @@ const useStore = create((set) => ({
       cart: [...state.cart, pizza],
     })),
 
-  removeFromCart: (id) =>
-    set((state) => ({
-      cart: state.cart.filter((pizza) => pizza.id !== id),
-    })),
+    removeFromCart: (indexToRemove) =>
+      set((state) => ({
+        cart: state.cart.filter((_, index) => index !== indexToRemove),
+      })),
 
   clearCart: () =>
     set({

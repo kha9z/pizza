@@ -13,6 +13,7 @@ function Hero() {
         <Link to="/menu" className="hero-btn">
           Se menyn
         </Link>
+        
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 function Footer() {
   return (
     <footer className="footer">
+      
       <h3>Pizza.js</h3>
 
       <p> Margaritesund 1, Trollhättan</p>
